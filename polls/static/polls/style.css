@@ -1,0 +1,89 @@
+.red {
+    color: red;
+    font-size: 30px;
+    font-family: 'Raleway';
+}
+li a {
+    color: white-space;
+    font-family: 'Raleway';
+}
+
+h1 {
+    color: red;
+    font-size: 46px;
+    font-family: 'Raleway';
+}
+h2 {
+    color: red;
+    font-size: 48px;
+    font-family: 'Raleway';
+}
+
+li {
+    color: red;
+    font-size: 30px;
+    font-family: 'Raleway';
+}
+
+a {
+    color: red;
+    font-size: 30px;
+    font-family: 'Raleway';
+}
+
+p {
+    color: green;
+    font-family: 'Raleway';
+}
+
+label {
+    color: white;
+    font-size: 36px;
+    font-family: 'Raleway';
+    
+}
+body {
+    /* background: white url("images/background12.jpg") no-repeat; */
+}
+
+
+button.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #050505;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#f7ff00 0%,
+		#ffbf00);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#f7ff00),
+		to(#ffbf00));
+	-moz-border-radius: 30px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	border: 5px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+}
+pasek {
+    font-size: 40px;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px; /* opcjonalnie jakaś wysokość */
+    
+}

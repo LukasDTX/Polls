@@ -1,0 +1,76 @@
+{% load static %}
+<!doctype html>
+<html lang="pl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="pl" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<title>Ankieta</title>
+	<link href="//fonts.googleapis.com/css?family=Raleway&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/style2.css' %}" />
+	<link href="https://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.css" rel="stylesheet">
+  </head>
+<body class="bg-light">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <main role="main" class="container">
+		<div class="d-flex align-items-center p-3 my-3 text-blue rounded box-shadow">
+			<img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+			<div class="lh-100">
+			  <h4 class="mb-0 text-blue lh-100">Ankieta</h4>
+			  <small>Informatyka</small>
+			</div>
+		</div>
+		<div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class="border-bottom border-gray pb-2 mb-0">{{ question.question_text }}</h6>
+		{% if latest_question_list %}
+			<div class="list-group">
+			{% for question in latest_question_list %}
+			 <a href="{% url 'polls:detail' question.id %}" class="list-group-item-action flex-column align-items-start">
+				<div class="media text-muted pt-3">
+					<img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+						<div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+					<div class="d-flex justify-content-between align-items-center w-100">
+					  <strong class="text-gray-dark">{{ question.question_text }}</strong>
+					</div>
+					<span class="d-block">@username</span>
+					</div>
+				</div>
+			</a>		
+			{% endfor %}
+			</div>
+		{% endif %}
+
+		<form action="{% url 'polls:vote' question.id %}" method="post">
+			{% csrf_token %}
+			{% for choice in question.choice_set.all %}
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+				<label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+			</div>
+			{% endfor %}
+			<button type="submit" class="btn btn-primary">Głosuj</button>
+		</form>
+		</div>
+		<div class="my-3 p-3 bg-white rounded box-shadow">
+		<a href="{% url 'polls:index' %}" class="btn btn-danger" role="button">Powrót</a>
+		</div>
+		<div class="d-flex align-items-center p-3 my-3 text-blue rounded box-shadow">
+			Copyright 2018 © Łukasz Hacaś</div>
+    </main>
+
+<footer></footer>
+	  	  <!-- js scripts -->
+	  <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
+  </body>
+</html>
